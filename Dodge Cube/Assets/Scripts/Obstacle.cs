@@ -11,8 +11,7 @@ public class Obstacle : MonoBehaviour
 
     void Start()
     {
-        rb.AddForce(new Vector3(0, 0, -(Mathf.Log(Time.timeSinceLevelLoad + 2, 1.1f) + speed)), ForceMode.Impulse);
-        Debug.Log(-(Mathf.Log(Time.timeSinceLevelLoad, 1.1f) + speed));
+        rb.AddForce(new Vector3(0, 0, -(Mathf.Log(Time.timeSinceLevelLoad + 1.1f, 1.1f) + speed)), ForceMode.Impulse);
         Destroy(gameObject, 5f);
     }
 }
