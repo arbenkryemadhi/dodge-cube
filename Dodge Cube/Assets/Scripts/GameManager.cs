@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        currentScore = (float)System.Math.Round(Time.time * 2.3, 1);
+        currentScore = (float)System.Math.Round(Time.timeSinceLevelLoad * 2.4, 1);
         scoreText.SetText(currentScore.ToString());
     }
 }

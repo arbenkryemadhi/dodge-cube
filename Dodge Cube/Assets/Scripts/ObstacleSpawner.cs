@@ -8,17 +8,26 @@ public class ObstacleSpawner : MonoBehaviour
     GameObject[] spawnPoints;
 
     float timeBetweenWaves = 1f;
+    float lowestTimeBetweenWaves = 0.7f;
+    float deltaTimeBetweenWaves = 0.01f;
     float timeToSpawn = 0f;
-    
+
+
 
 
     // Update is called once per frame
     void Update()
     {
-        if (Time.time >= timeToSpawn)
+        if (Time.timeSinceLevelLoad >= timeToSpawn)
         {
             SpawnObstacles();
-            timeToSpawn = Time.time + timeBetweenWaves;
+            timeToSpawn = Time.timeSinceLevelLoad + timeBetweenWaves;
+
+            if (timeBetweenWaves > lowestTimeBetweenWaves)
+            {
+                timeBetweenWaves -= deltaTimeBetweenWaves;
+                Debug.Log(timeBetweenWaves);
+            }
         }
     }
 
